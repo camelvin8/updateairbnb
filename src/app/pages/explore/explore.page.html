@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-item>
+    <ion-avatar slot="end" (click)="toProfile()">
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png">
+    </ion-avatar>
+    <ion-label> Explore </ion-label>
+    <!-- <ion-searchbar></ion-searchbar> -->
+  </ion-item>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+      <ion-col *ngFor = "let property of properties">
+        <ion-row>
+          <img src = {{property.imageUrl}}>
+          <ion-item [routerLink]="['/property', property.id]">
+            {{property.name}}
+            ${{property.price}}
+            {{property.location}}
+          </ion-item>
+        </ion-row>
+      </ion-col>
+  </ion-grid>
+</ion-content>
